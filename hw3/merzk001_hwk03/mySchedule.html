@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>Tarik's Schedule</title>
+      <link rel="stylesheet" type="text/css" href="mysched.css">
+   </head>
+    <body>
+      <nav id="mynav">
+        <a href="mySchedule.html"><div>My&nbsp;Schedule</div></a>
+        <a href="myForm.html"><div>Form&nbsp;Input</div></a>
+        <a href="aboutMe.html"><div>About&nbsp;Me</div></a>
+      </nav>
+    <h1 id="myh1">My Schedule</h1>
+    <div id="outerflex">
+        <div id="flexcontainer">
+            <table id="myschedule">
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>Event</th>
+                        <th>Time</th>
+                        <th>Event Location (Virtual or Physical)</th>
+                        <th id="phonecol">Phone Number</th>
+                        <th>URL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr onmouseover="showBigPic('Tate.png', 'Tate Hall', 'displayimg')">
+                        <td> Monday </td>
+                        <td class="EvName"> Phys 3605W Laboratory </td>
+                        <td class="EvTime"> 8:00am - 11:00am </td>
+                        <td class="EvLoca"> 116 Church St SE, Minneapolis, MN 55455
+                            <img class="locimage" src="Tate.png" alt="Tate">
+                        </td>
+                        <td> No Phone Number </td>
+                        <td> 
+                            <a href="https://onestop2.umn.edu/pcas/viewCatalogCourse.do?courseId=817275" target="_blank">Phys 3605W Info</a>
+                        </td>
+                    </tr>
+                    <tr onmouseover="showBigPic('Tate.png', 'Tate Hall', 'displayimg')">
+                        <td> Monday </td>
+                        <td class="EvName"> Internet Programming Lecture </td>
+                        <td class="EvTime"> 11:15am - 12:30pm </td>
+                        <td class="EvLoca"> 116 Church St SE, Minneapolis, MN 55455
+                            <img class="locimage" src="Tate.png" alt="Tate">
+                        </td>
+                        <td> No Phone Number </td>
+                        <td> 
+                            <a href="https://onestop2.umn.edu/pcas/viewCatalogCourse.do?courseId=790654" target="_blank">CSCI 4131 Info</a>
+                        </td>
+                    </tr>
+                    <tr onmouseover="showBigPic('viralc.jpg', 'Viral Card Games', 'displayimg')">
+                        <td> Monday </td>
+                        <td class="EvName"> Weekly Super Smash Bros Tournament </td>
+                        <td class="EvTime"> 6:00pm - 9:00pm </td>
+                        <td class="EvLoca"> 1206 E Moore Lake Dr, Fridley, MN 
+                            <img class="locimage" src="viralc.jpg" alt="Viral">
+                        </td>
+                        <td> No Phone Number </td>
+                        <td> <a href="https://start.gg/TouchGrass" target="_blank">TouchGrass Events Page </a></td>
+                    </tr>
+                    <tr onmouseover="showBigPic('keller.jpg', 'Keller Hall', 'displayimg')">
+                        <td> Tuesday </td>
+                        <td class="EvName"> Computer Architecture </td>
+                        <td class="EvTime"> 9:45am - 11:00am </td>
+                        <td class="EvLoca"> 200 Union St SE, Minneapolis, MN 55455 
+                            <img class="locimage" src="keller.jpg" alt="keller">
+                        </td>
+                        <td> No Phone Number </td>
+                        <td> 
+                            <a href="https://onestop2.umn.edu/pcas/viewCatalogCourse.do?courseId=002173" target="_blank">CSCI 4203 Info</a>
+                        </td>
+                    </tr>
+                    <tr onmouseover="showBigPic('keller.jpg', 'Keller Hall', 'displayimg')">
+                        <td> Tuesday </td>
+                        <td class="EvName"> UTA Office Hours CSCI 1133 </td>
+                        <td class="EvTime"> 12:00pm - 1:00pm </td>
+                        <td class="EvLoca"> 200 Union St SE, Minneapolis, MN 55455 
+                            <img class="locimage" src="keller.jpg" alt="keller">
+                        </td>
+                        <td> (631)-601-4418 </td>
+                        <td> 
+                            <a href="https://onestop2.umn.edu/pcas/viewCatalogCourse.do?courseId=809666" target="_blank">CSCI 1133 Info</a>
+                        </td>
+                    </tr>
+                    <tr onmouseover="showBigPic('Tate.png', 'Tate Hall', 'displayimg')">
+                        <td> Tuesday </td>
+                        <td class="EvName"> CSCI 4611 Interactive Graphics </td>
+                        <td class="EvTime"> 4:00pm - 5:15pm </td>
+                        <td class="EvLoca"> 116 Church St SE, Minneapolis, MN 55455
+                            <img class="locimage" src="Tate.png" alt="Tate">
+                        </td>
+                        <td> No Phone Number </td>
+                        <td> 
+                            <a href="https://onestop2.umn.edu/pcas/viewCatalogCourse.do?courseId=810362" target="_blank">CSCI 4611 Info</a>
+                        </td>
+                    </tr>
+                    <tr onmouseover="showBigPic('coffman.jpg', 'Coffman Union', 'displayimg')">
+                        <td> Tuesday </td>
+                        <td class="EvName"> UMN Super Smash Bros Club Meeting </td>
+                        <td class="EvTime"> 5:30pm - 9:00pm </td>
+                        <td class="EvLoca"> 300 Washington Ave SE, Minneapolis, MN 55455
+                            <img class="locimage" src="coffman.jpg" alt="Coffman">
+                        </td>
+                        <td> No Phone Number </td>
+                        <td> 
+                            <a href="https://twin-cities-umn.presence.io/organization/smash-club-at-umn-3300" target="_blank">UMN Smash Club</a>
+                        </td>
+                    </tr>
+                    <tr onmouseover="showBigPic('Tate.png', 'Tate Hall', 'displayimg')">
+                        <td> Wednesday </td>
+                        <td class="EvName"> Internet Programming Lecture </td>
+                        <td class="EvTime"> 11:15am - 12:30pm </td>
+                        <td class="EvLoca"> 116 Church St SE, Minneapolis, MN 55455
+                            <img class="locimage" src="Tate.png" alt="Tate">
+                        </td>
+                        <td> No Phone Number </td>
+                        <td> 
+                            <a href="https://onestop2.umn.edu/pcas/viewCatalogCourse.do?courseId=790654" target="_blank">CSCI 4131 Info</a>
+                        </td>
+                    </tr>
+                    <tr onmouseover="showBigPic('keller.jpg', 'Keller Hall', 'displayimg')">
+                        <td> Wednesday </td>
+                        <td class="EvName"> CSCI 1133 Lab 041 & 042 </td>
+                        <td class="EvTime"> 1:25pm-3:20pm, 3:35pm-5:30pm </td>
+                        <td class="EvLoca"> 200 Union St SE, Minneapolis, MN 55455 
+                            <img class="locimage" src="keller.jpg" alt="keller">
+                        </td>
+                        <td> No Phone Number </td>
+                        <td> 
+                            <a href="https://onestop2.umn.edu/pcas/viewCatalogCourse.do?courseId=809666" target="_blank">CSCI 1133 Info</a>
+                        </td>
+                    </tr>
+                    <tr onmouseover="showBigPic('keller.jpg', 'Keller Hall', 'displayimg')">
+                        <td> Thursday </td>
+                        <td class="EvName"> Computer Architecture </td>
+                        <td class="EvTime"> 9:45am - 11:00am </td>
+                        <td class="EvLoca"> 200 Union St SE, Minneapolis, MN 55455 
+                            <img class="locimage" src="keller.jpg" alt="keller">
+                        </td>
+                        <td> No Phone Number </td>
+                        <td> 
+                            <a href="https://onestop2.umn.edu/pcas/viewCatalogCourse.do?courseId=002173" target="_blank">CSCI 4203 Info</a>
+                        </td>
+                    </tr>
+                    <tr onmouseover="showBigPic('univminn.jpg', 'University of Minnesota', 'displayimg')">
+                        <td> Thursday </td>
+                        <td class="EvName"> Modern Physics Lab Lecture </td>
+                        <td class="EvTime"> 11:15am - 12:05pm </td>
+                        <td class="EvLoca"> 115 Union St SE, Minneapolis, MN 55455 
+                            <img class="locimage" src="univminn.jpg" alt="University">
+                        </td>
+                        <td> No Phone Number </td>
+                        <td> 
+                            <a href="https://onestop2.umn.edu/pcas/viewCatalogCourse.do?courseId=817275" target="_blank">Phys 3605W Info</a>
+                        </td>
+                    </tr>
+                    <tr onmouseover="showBigPic('Tate.png', 'Tate Hall', 'displayimg')">
+                        <td> Thursday </td>
+                        <td class="EvName"> CSCI 4611 Interactive Graphics </td>
+                        <td class="EvTime"> 4:00pm - 5:15pm </td>
+                        <td class="EvLoca"> 116 Church St SE, Minneapolis, MN 55455 
+                            <img class="locimage" src="Tate.png" alt="Tate">
+                        </td>
+                        <td> No Phone Number </td>
+                        <td> 
+                            <a href="https://onestop2.umn.edu/pcas/viewCatalogCourse.do?courseId=810362" target="_blank">CSCI 4611 Info</a>
+                        </td>
+                    </tr>
+                    <tr onmouseover="showBigPic('keller.jpg', 'Keller Hall', 'displayimg')">
+                        <td> Friday </td>
+                        <td class="EvName"> UTA Office Hours CSCI 1133 </td>
+                        <td class="EvTime"> 11:00am - 12:00pm </td>
+                        <td class="EvLoca"> 200 Union St SE, Minneapolis, MN 55455 
+                            <img class="locimage" src="keller.jpg" alt="keller">
+                        </td>
+                        <td> (631)-601-4418 </td>
+                        <td> 
+                            <a href="https://onestop2.umn.edu/pcas/viewCatalogCourse.do?courseId=809666" target="_blank">CSCI 1133 Info</a>
+                        </td>
+                    </tr>
+                    <tr onmouseover="showBigPic('leftc.jpg', 'Left Click', 'displayimg')">
+                        <td> Friday </td>
+                        <td class="EvName"> Weekly Super Smash Bros Tournament in Dinkytown </td>
+                        <td class="EvTime"> 5:00pm - 9:00pm </td>
+                        <td class="EvLoca"> 321 14th Ave SE, Minneapolis, MN 
+                            <img class="locimage" src="leftc.jpg" alt="LeftClick">
+                        </td>
+                        <td> No Phone Number </td>
+                        <td> 
+                            <a href="https://www.start.gg/tournament/dash-dance-dinkytown-9/details" target="_blank">DashDance Dinkytown Tourney Page</a>
+                            <br>
+                            <a href="https://leftclicklounge.com/" target="_blank">Left Click Lounge Info</a>
+                        </td>
+                    </tr>
+                    <tr onmouseover="showBigPic('wriver.jpg', 'West River Parkway', 'displayimg')">
+                        <td> Saturday </td>
+                        <td class="EvName"> Run </td>
+                        <td class="EvTime"> 8:00am - 10:00am </td>
+                        <td class="EvLoca"> W River Pkwy, Minneapolis, MN 
+                            <img class="locimage" src="wriver.jpg" alt="wriver">
+                        </td>
+                        <td> No Phone Number </td>
+                        <td> 
+                            <a href="https://www.traillink.com/trail/west-river-parkway-trail-/" target="_blank">Info for my Run Path</a>
+                        </td>
+                    </tr>
+                    <tr onmouseover="showBigPic('stubs.jpg', 'Stub and Herbs', 'displayimg')">
+                        <td> Sunday </td>
+                        <td class="EvName"> Go Eat With Roommates at Stub & Herbs</td>
+                        <td class="EvTime"> 7:00pm - 8:30pm </td>
+                        <td class="EvLoca"> 227 SE Oak St, Minneapolis, MN 
+                            <img class="locimage" src="stubs.jpg" alt="Sterbs">
+                        </td>
+                        <td> (612) 379-0555 </td>
+                        <td> 
+                            <a href="http://www.stubandherbsbar.com/" target="_blank">Stub & Herbs Page</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="rightcol">
+                <button id="togglehide" type="button">Hide Image</button>
+                <img id="displayimg" class="supports-hidden" src="gophers-mascot.png" alt="gophers-mascot">
+            </div>
+        </div>
+        <div id="gridformapstuff">
+            <div id="mydirs">
+                <table id="tableofdirs"></table>
+            </div>
+            <div id="map"></div>
+            <div id="mapcell">
+                <img id="mapfinderimg" src="search.png" alt="searchicon">
+            </div>
+            <div id="finderinput">
+                <p class="textboxing">
+                    <label for="typeof">Find: </label>
+                    <select name="typeof" id="typeof">
+                        <option value="restaurant">Restaurants</option>
+                        <option value="hospital">Hospitals</option>
+                        <option value="parking">Parking</option>
+                        <option value="supermarket">Supermarkets</option>
+                        <option value="other">Other</option>
+                    </select>
+                </p>
+                <p class="textboxing">
+                    <input id="addaddress" type="text" placeholder="Enter Other Places" disabled>
+                </p>
+                <p class="textboxing"> 
+                    In <input type="text" placeholder="1500"> meters 
+                </p>
+                <button class="mysubmit">Search</button>
+            </div>
+            <div id="dircell">
+                <img id="directionsimg" src="direction.png" alt="directions icon">
+            </div>
+            <div id="direcinput">
+                <p class="textboxing">
+                    Direction to <br>
+                    <input id="addresstext" type="text" placeholder="Your destination">
+                    <br> by
+                </p>
+                <p class="textboxing">
+                    <label for="walk">Walk</label>
+                    <input type="radio" id="walk" name="transportation" value="WALKING" checked>
+                    <br>
+                    <label for="drive">Drive</label>
+                    <input type="radio" id="drive" name="transportation" value="DRIVING">
+                    <br>
+                    <label for="transit">Transit</label> 
+                    <input type="radio" id="transit" name="transportation" value="TRANSIT">
+                </p>
+                <button id="directionGo" class="mysubmit">Go</button>
+            </div>
+        </div>
+    </div>
+
+    
+      <!-- Here is where the google maps stuff would be?-->
+      <!-- Things to add:
+        (1) Go away button for image (USE CAT OR
+                ANIMATION THAT CHANGES TRANSPARENCCY)
+        (2) Markers Gopher that say stuff for each location,
+                use examples from geocoderex and simplemap2
+        (3) Directions for a specific address
+
+        (4) Finder (Find restaurants and others)
+            (4a) Autocomplete the directions
+
+            AIzaSyBcJHI-pb1mjfjSmJE9ZZJlr2kGkkaGlxE
+    -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="schedjs.js" async></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcJHI-pb1mjfjSmJE9ZZJlr2kGkkaGlxE&libraries=places&callback=initMap" async defer></script>
+    
+   </body>
+   
+</html>

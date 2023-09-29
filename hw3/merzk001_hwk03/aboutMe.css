@@ -1,0 +1,128 @@
+
+body {
+    font-family: Arial;
+    background-image: linear-gradient(to left, rgb(230, 211, 254), rgb(255, 255, 255));
+}
+
+/*Navigation Tab stuff, copy for all the other ones!*/ 
+#mynav {
+    display: flex;
+    border-radius: 20px 40px;
+    width: 100%;
+    background: rgb(102, 5, 147);
+}
+
+#mynav div {
+    padding: 10px;
+    font-size: 14px;
+    font-family: Helvetica, Arial, sans-serif;
+    cursor: pointer;
+    color:white;
+}
+
+#mynav a {
+    background: linear-gradient(to right, rgb(0, 216, 36), rgb(34, 74, 251));
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 20px 60px;
+    text-decoration: none;
+}
+/*-------------- END OF NAV STUFF --------------*/ 
+
+p.myh1 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    background: linear-gradient(to right, rgb(201, 249, 209), rgb(153, 171, 255));
+    border-radius: 5px 60px;
+}
+
+.myh1 span {
+    font-family: sans-serif;
+    font-size: 32px;
+    margin-left: 20px;
+}
+
+p.title {
+    font-family: sans-serif;
+    margin: 10px 20px;
+    font-size: 18px;
+}
+
+#myname {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 24px;
+    color :rgb(0, 23, 125);
+}
+
+table {
+    border-collapse: collapse;
+}
+
+#spbet{     /* Overall div holding all items in a 2x2 matrix shape*/
+    display: flex;
+    flex-flow: row wrap;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#leftcol {  /* Div aligning picture and stuff with playlist*/
+    display: flex;
+    flex-flow: column wrap;
+    flex-wrap: wrap;
+}
+
+#rightcol {  /* Div aligning date calc and insta*/
+    display: flex;
+    flex-flow: column wrap;
+    flex-wrap: wrap;
+}
+
+#infome{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#stuffme {
+    margin-left:20px;
+}
+
+#infome ul {
+    font-size: 14px;
+}
+
+#myimage {
+    width: 350px;
+    height: 400px;
+}
+
+#firsttable {
+    display: flex;
+    flex-flow: row wrap;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+    border: 1px solid black;
+}
+
+/* DATE CALCULATOR STUFF */
+
+#datecalc {
+    background: linear-gradient(to left, rgb(96, 96, 251), rgb(203, 203, 255));
+    display: grid;
+    width: 300px;
+    height: 400px;
+    align-content: start;
+    border: 3px solid darkblue;
+}
+
+#datecalc div {
+    margin: 10px 10px;
+}
+
+#myspace {
+    font-style: italic;
+    font-family: Apple Chancery,cursive;
+}
+
+/* END OF DATE CALCULATOR STUFF */

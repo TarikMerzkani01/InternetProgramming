@@ -1,0 +1,82 @@
+
+/* General */
+
+body {
+    background-image: linear-gradient(to right, white, rgb(92, 68, 190));
+}
+
+h1 {
+    margin: 20px 20px;
+}
+
+#myh1 {
+    margin: 10px 30px;
+    font-family: sans-serif;
+    color:rgb(41, 36, 101);
+}
+/*Navigation Tab stuff, copy for all the other ones!*/ 
+
+#mynav {
+    display: flex;
+    border-radius: 20px 40px;
+    width: 100%;
+    background: rgb(128, 255, 190);
+}
+#mynav div {
+    padding: 10px;
+    font-size: 14px;
+    font-family: Helvetica, Arial, sans-serif;
+    cursor: pointer;
+    color:white;
+}
+#mynav a {
+    background: linear-gradient(to right, rgb(216, 0, 216), rgb(84, 118, 255));
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 20px 60px;
+    text-decoration: none;
+}
+/*End of Navigation stuff*/
+
+/* FORM STUFF*/
+
+#mycontainer {
+    display: flex;
+    padding: 10px 10px;
+    background: linear-gradient(to left, rgb(128, 255, 190), white, rgb(128, 255, 190));
+    justify-content: space-evenly;
+    width: 100%
+}
+
+td > input {
+    width: 200px;
+    height: 30px;
+}
+
+#mysubmit {
+    border-color:rgb(39, 108, 85);
+    background-color: rgb(97, 196, 97);
+    box-shadow: 0px 0px 2px black;
+}
+
+#mysubmit:hover{
+    box-shadow: 0px 0px 7px green;
+    background-color: rgb(117, 235, 117);
+}
+
+#mycontainer label {
+    font-size: 22px;
+}
+
+#map {
+    display: block;
+    height: 350px;
+    border: 1px solid black;
+    width: 40%;
+}
+
+#infowindow-content {
+    display:none;
+}
+
+/* END OF FORM STUFF*/

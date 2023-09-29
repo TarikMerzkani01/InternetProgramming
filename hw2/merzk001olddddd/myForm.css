@@ -1,0 +1,35 @@
+
+body {
+    background-image: linear-gradient(to left, white, rgb(31, 31, 31), black, rgb(31, 31, 31), white);
+}
+
+h1 {
+    margin: 20px 20px;
+}
+#mynav {
+    display: flex;
+    border-radius: 20px 40px;
+    width: 100%;
+    height: 70px;
+    background: rgb(39, 108, 85);
+}
+#mynav div {
+    padding: 27px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+    color:white;
+}
+#mynav a {
+    background: linear-gradient(to right, rgb(18, 0, 216), rgb(79, 84, 104));
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 20px 60px;
+    text-decoration: none;
+}
+
+#mycontainer {
+    padding: 10px 10px;
+    background-color: white;
+
+}

@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>403: FORBIDDEN</title>
+    
+  </head>
+  <body>
+  <center>
+    <h1>403: FORBIDDEN</h1></br>
+    <div class="greeting">
+      Hello 
+    </div>
+  </center>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script>
+    outer = "hELLO";
+    function VariableScoping() {
+      console.log("first"+ outer);
+      outer = "There";
+      console.log("second"+ outer);
+    }
+    console.log("Third"+outer);
+    VariableScoping();
+    console.log("\n");
+    console.log("7"=== 7);
+    console.log("42"== 42);
+  </script>
+  </body>
+</html>

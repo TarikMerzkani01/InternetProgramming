@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>Form of Tarik</title>
+      <link rel="stylesheet" type="text/css" href="myForm.css">
+   </head>
+   <body>
+      <nav id="mynav">
+        <a href="mySchedule.html"><div>My&nbsp;Schedule</div></a>
+        <a href="myForm.html"><div>Form&nbsp;Input</div></a>
+        <a href="aboutMe.html"><div>About&nbsp;Me</div></a>
+      </nav>
+      <h1> Event Adder</h1>
+      <div id="mycontainer">
+        <form method="post" action="https://www-users.cselabs.umn.edu/%7Ecuixx327/a2.php" target="_blank">
+            <p>
+                <label for="event">Event: </label>
+                <input type="text" id ="event" name="Event" required>
+            </p>
+            <p>
+                <!--
+                    <label for="day"><span>Day of Week:</span><select name="Day" id="day" required>
+                    <option value="Sun">Sun</option>
+                    <option value="Mon">Mon</option>
+                    <option value="Tue">Tue</option>
+                    <option value="Wed">Wed</option>
+                    <option value="Thur">Thur</option>
+                    <option value="Fri">Fri</option>
+                    <option value="Sat">Sat</option>
+                </select></label>
+                -->
+                <label for="day">Day: </label>
+                <input type="text" id ="day" name="Day" required>
+            </p>
+            <p>
+                <label for="start">Start: </label>
+                <input type="text" id ="start" name="Start" required>
+            </p>
+            <p>
+                <label for="end">End: </label>
+                <input type="text" id ="end" name="End" required>
+            </p>
+            <p>
+                <label for="phone">Phone: </label>
+                <input type="text" id ="phone" name="Phone" required>
+            </p>
+            <p>
+                <label for="location">Location: </label>
+                <input type="text" id ="location" name="Location" required>
+            </p>
+            <p>
+                <label for="extra">Extra Info: </label>
+                <input type="text" id ="extra" name="Extra Info" required>
+            </p>
+            <p>
+                <label for="url">Enter URL for Extra Info: </label>
+                <input type="text" id ="url" name="URL" required>
+            </p>
+            <p>
+                <input type="submit" value="Submit">
+            </p>
+        </form>
+      </div>
+   </body>
+</html>

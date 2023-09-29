@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>Form of Tarik</title>
+      <link rel="stylesheet" type="text/css" href="myForm.css">
+   </head>
+   <body>
+      <nav id="mynav">
+        <a href="mySchedule.html"><div>My&nbsp;Schedule</div></a>
+        <a href="myForm.html"><div>Form&nbsp;Input</div></a>
+        <a href="aboutMe.html"><div>About&nbsp;Me</div></a>
+      </nav>
+      <h1> Event Adder</h1>
+      <div id="mycontainer">
+        <form method="post" action="https://www-users.cselabs.umn.edu/%7Ecuixx327/a2.php">
+            <table>
+                <tr>
+                    <td><label for="event">Event: </label></td>
+                    <td><input type="text" id ="event" name="event" placeholder="Your Event" pattern="[a-zA-Z0-9\s]+" required></td>
+                </tr>
+                <tr>
+                    <td><label for="day">Day: </label></td>
+                    <td>
+                        <select name="day" id="day" placeholder="Monday" required>
+                            <option value="Sunday">Sunday</option>
+                            <option value="Monday">Monday</option>
+                            <option value="Tuesday">Tuesday</option>
+                            <option value="Wednesday">Wednesday</option>
+                            <option value="Thursday">Thursday</option>
+                            <option value="Friday">Friday</option>
+                            <option value="Saturday">Saturday</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="start">Start: </label></td>
+                    <td><input type="text" id ="start" name="start" placeholder="00:00 AM" pattern="((1[0-2]|0?[1-9]):([0-5][0-9]) ([AaPp][Mm]))" required></td>
+                </tr>
+                <tr>
+                    <td><label for="end">End: </label></td>
+                    <td><input type="text" id ="end" name="end" placeholder="00:00 AM" pattern="((1[0-2]|0?[1-9]):([0-5][0-9]) ([AaPp][Mm]))" required></td>
+                </tr>
+                <tr>
+                    <td><label for="phone">Phone: </label></td>
+                    <td><input type="text" id ="phone" name="phone" placeholder="(XXX) XXX-XXXX" pattern="/^(\([0-9]{3}\)\s*|[0-9]{3}\-)[0-9]{3}-[0-9]{4}$/" required></td>
+                </tr>
+                <tr>
+                    <td><label for="location">Location: </label></td>
+                    <td><input type="text" id ="location" name="location" placeholder="My Location" required></td>
+                </tr>
+                <tr>
+                    <td><label for="extra">Extra Info: </label></td>
+                    <td> <input type="text" id ="extra" name="extra" placeholder="Your Info" required></td>
+                </tr>
+                <tr>
+                    <td><label for="url">Enter URL for Extra Info: </label></td>
+                    <td><input type="text" id ="url" name="url" placeholder="https://www.youtube.com" pattern="^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$" required></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Submit"></td>
+                </tr>
+            </table>
+                <!--
+                    <label for="day"><span>Day of Week:</span><select name="Day" id="day" required>
+                    <option value="Sun">Sun</option>
+                    <option value="Mon">Mon</option>
+                    <option value="Tue">Tue</option>
+                    <option value="Wed">Wed</option>
+                    <option value="Thur">Thur</option>
+                    <option value="Fri">Fri</option>
+                    <option value="Sat">Sat</option>
+                </select></label>
+                -->
+        </form>
+      </div>
+   </body>
+</html>
+
+<!--
+    Ask for how to ensure legal input in Form
+        Do we do regex?
+        jQuery?
+    Ask for how to ensure legal input in Date (do we code?)
+    
+    Reminder to do right pop-up image on schedule.html in jQuery!!!
+
+
+-->
