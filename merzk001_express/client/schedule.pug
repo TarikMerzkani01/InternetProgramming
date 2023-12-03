@@ -1,0 +1,132 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO' crossorigin='anonymous')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js' integrity='sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49' crossorigin='anonymous')
+  script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js' integrity='sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy' crossorigin='anonymous')
+  style(type='text/css').
+    div .hiddenbuts {
+    display: none;
+    }
+    tr:hover .hiddenbuts{
+    display:block;
+    }
+  title My Schedule
+nav.navbar.navbar-expanded.navbar-light.bg-light.mb-5
+  ul.nav.nav-pills
+    li.nav-item.active
+      a.nav-link.active(href='schedule') Schedule
+    li.nav-item
+      a.nav-link(href='addEvent')
+        | Add
+        | Event
+    li.nav-item
+      a.nav-link.btn-secondary.ml-1(onclick='logoutAct()') Log Out!
+.container.mb-5
+  .alert.alert-secondary(role='alert')
+    | Click on a day to see its events
+.container.mb-3
+  ul#days.nav.nav-tabs.nav-fill
+    li.nav-item
+      a.nav-link(onclick='formTable(this)') Sunday
+    li.nav-item
+      a.nav-link(onclick='formTable(this)') Monday
+    li.nav-item
+      a.nav-link(onclick='formTable(this)') Tuesday
+    li.nav-item
+      a.nav-link(onclick='formTable(this)') Wednesday
+    li.nav-item
+      a.nav-link(onclick='formTable(this)') Thursday
+    li.nav-item
+      a.nav-link(onclick='formTable(this)') Friday
+    li.nav-item
+      a.nav-link(onclick='formTable(this)') Saturday
+  br
+  br
+  .container
+    table#scheduleTable.table.table-striped
+      thead
+        tr
+          th(scope='col') Name
+          th(scope='col') Time
+          th(scope='col') Location
+          th(scope='col') Phone
+          th(scope='col') Extra Information
+      tbody
+script.
+  function logoutAct() {
+  let text = "This action will log you out.\nIs that okay?";
+  if (confirm(text) == true) {
+  location.href = "http://localhost:9007/logout";
+  }
+  }
+  function formTable(element) {
+  $('#days li a').removeClass("active");
+  $(element).addClass("active");
+  clearTable();
+  let day = $(element).text().toLowerCase();
+  //TODO: Make request and fill table with events for the day
+  let myurl = "http://localhost:9007/getSchedule?day=" + day;
+  fetch(myurl)
+  .then(response => {
+  return response.text();
+  })
+  .then(eventJSON=>{
+  var myArr = JSON.parse(eventJSON);
+  //alert(eventJSON);
+  var $myday = $('#scheduleTable tbody');
+  var myhtml = "";
+  for(let i = 0; i < myArr.length; i++) {
+  //build HTML and add it here!
+  // It is assumed that the correctness of sorted by time
+  // is guaranteed by the server side when modifying the
+  // schedule.json through
+  //console.log("My ids:" + myArr[i].id);
+  myhtml += "<tr id=\"" + myArr[i].id+ "\">";
+  myhtml += "<td>"+myArr[i].name+"</td>";
+  myhtml += "<td>"+myArr[i].start+" - "+myArr[i].end+"</td>";
+  myhtml += "<td>"+myArr[i].location+"</td>";
+  myhtml += "<td>"+myArr[i].phone+"</td>";
+  // <a href="http://www.stubandherbsbar.com/" target="_blank">Stub & Herbs Page</a>
+  myhtml += "<td><a href=\\"+myArr[i].url+"\" target =\"_blank\">"+myArr[i].info+"</a></td>";
+  myhtml += "<td> <div class=\"hiddenbuts\"> <button class=\"btn-secondary mr-1 bg-danger text-white\" type=\"button\" onClick=\"deleteRow($("+myArr[i].id+"))\">Delete </button>";
+  myhtml += "<button class=\"btn-primary text-white\" type=\"button\" onClick=\"editRow($("+myArr[i].id+"))\">Edit </button></div></td>";
+  myhtml += "</tr>";
+  }
+  $myday.append(myhtml);
+  })
+  .catch(error=> console.log("Request failed",error));
+  }
+
+  function deleteRow(value) {
+  let myid = value[0];
+  let text = "Are you sure you want to delete this event?\nPress OK to delete.";
+  if (confirm(text) == false) {
+  return;
+  }
+  let myurl = "http://localhost:9007/deleteEvent?idvalue="+myid;
+  fetch(myurl, {method: "DELETE"})
+  .then(response => {
+  if (response.status == 200) {
+    //alert("Response is: 200");
+    //response already deleted. NO way this response was sent without being successfully deleted from database
+    document.getElementById(myid).remove(); // remove the row displayed on schedule
+  } else {
+    alert("Something went wrong with deleting your event.\n No event was deleted.");
+  }
+  return response.text();
+  })
+  .catch(error=> console.log("Request failed",error));
+  }
+
+  function editRow(value) {
+  let myid = value[0];
+  let myurl = "http://localhost:9007/editEvent?idvalue="+myid;
+  location.href = myurl;
+  }
+
+  function clearTable() {
+  $('#scheduleTable tbody').empty();
+  }

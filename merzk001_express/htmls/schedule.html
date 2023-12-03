@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+    <style type="text/css">
+      div .hiddenbuts {
+          display: none;
+      }
+      div:hover .hiddenbuts{
+          display:block;
+      }
+    </style>
+    <title>My Schedule</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expanded navbar-light bg-light mb-5">
+      <ul class="nav nav-pills">
+        <li class="nav-item active">
+          <a class="nav-link active" href=
+                    "schedule">Schedule</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="addEvent">Add
+            Event</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn-secondary ml-1" onclick="logoutAct()">Log Out!</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="container mb-5">
+      <div class="alert alert-secondary" role="alert">
+        Click on a day to see its events
+      </div>
+    </div>
+    <div class="container mb-3">
+      <ul id="days" class="nav nav-tabs nav-fill">
+        <li class="nav-item">
+          <a class="nav-link" onclick=
+                "formTable(this)">Sunday</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" onclick=
+                "formTable(this)">Monday</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" onclick=
+                "formTable(this)">Tuesday</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" onclick=
+                "formTable(this)">Wednesday</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" onclick=
+                "formTable(this)">Thursday</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" onclick=
+                "formTable(this)">Friday</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" onclick=
+                "formTable(this)">Saturday</a>
+        </li>
+      </ul><br>
+      <br>
+      <div class="container">
+        <table class="table table-striped" id="scheduleTable">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Time</th>
+              <th scope="col">Location</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Extra Information</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <script>
+     function logoutAct() {
+      let text = "This action will log you out.\nIs that okay?";
+      if (confirm(text) == true) {
+        location.href = "http://localhost:9018/logout";
+      }
+     }
+     function formTable(element) {
+       $('#days li a').removeClass("active");
+       $(element).addClass("active");
+       clearTable();
+       let day = $(element).text().toLowerCase();
+       //TODO: Make request and fill table with events for the day
+       let myurl = "http://localhost:9018/getSchedule?day=" + day;
+       fetch(myurl)
+        .then(response => {
+              return response.text();
+              })
+        .then(eventJSON=>{
+              var myArr = JSON.parse(eventJSON);
+              ///alert(eventJSON);
+              var $myday = $('#scheduleTable tbody');
+              var myhtml = "";
+              for(let i = 0; i < myArr.length; i++) {
+                //build HTML and add it here!
+                // It is assumed that the correctness of sorted by time
+                // is guaranteed by the server side when modifying the
+                // schedule.json through
+                myhtml += "<tr id=\"" + myArr[i].id+ "\">";
+                myhtml += "<td>"+myArr[i].name+"</td>";
+                myhtml += "<td>"+myArr[i].start+" - "+myArr[i].end+"</td>";
+                myhtml += "<td>"+myArr[i].location+"</td>";
+                myhtml += "<td>"+myArr[i].phone+"</td>";
+                // <a href="http://www.stubandherbsbar.com/" target="_blank">Stub & Herbs Page</a>
+                myhtml += "<td><a href=\\"+myArr[i].url+"\" target =\"_blank\">"+myArr[i].info+"</a></td>";
+                myhtml += "<td> <div class=\"hiddenbuts\"> <button class=\"btn-secondary mr-1 bg-danger text-white\" type=\"button\" onClick=\"deleteRow(${data[i].id})\">Delete </button>";
+                myhtml += "<button class=\"btn-primary text-white\" type=\"button\" onClick=\"editRow(${data[i].id})\">Edit </button></div></td>";
+                myhtml += "</tr>";
+              }
+              $myday.append(myhtml);
+              })
+        .catch(error=> console.log("Request failed",error));
+
+       
+     }
+     function deleteRow(value) {
+      console.log(value);
+      //  let day = $(element).text().toLowerCase();
+      //  //TODO: Make request and fill table with events for the day
+      //  let myurl = "http://localhost:9018/getSchedule?day=" + day;
+
+
+      //  fetch(myurl)
+      //   .then(response => {
+      //         return response.text();
+      //         })
+      //   .then(eventJSON=>{
+      //         var myArr = JSON.parse(eventJSON);
+      //         ///alert(eventJSON);
+      //         var $myday = $('#scheduleTable tbody');
+      //         var myhtml = "";
+      //         for(let i = 0; i < myArr.length; i++) {
+      //           //build HTML and add it here!
+      //           // It is assumed that the correctness of sorted by time
+      //           // is guaranteed by the server side when modifying the
+      //           // schedule.json through
+      //           myhtml += "<tr id=\"" + myArr[i].id+ "\">";
+      //           myhtml += "<td>"+myArr[i].name+"</td>";
+      //           myhtml += "<td>"+myArr[i].start+" - "+myArr[i].end+"</td>";
+      //           myhtml += "<td>"+myArr[i].location+"</td>";
+      //           myhtml += "<td>"+myArr[i].phone+"</td>";
+      //           // <a href="http://www.stubandherbsbar.com/" target="_blank">Stub & Herbs Page</a>
+      //           myhtml += "<td><a href=\\"+myArr[i].url+"\" target =\"_blank\">"+myArr[i].info+"</a></td>";
+      //           myhtml += "<td> <div class=\"hiddenbuts\"> <button class=\"btn-secondary mr-1 bg-danger text-white\" type=\"button\" onClick=\"deleteRow(${data[i].id})\">Delete </button>";
+      //           myhtml += "<button class=\"btn-primary text-white\" type=\"button\" onClick=\"editRow(${data[i].id})\">Edit </button></div></td>";
+      //           myhtml += "</tr>";
+      //         }
+      //         $myday.append(myhtml);
+      //         })
+      //   .catch(error=> console.log("Request failed",error));
+
+       
+     }
+
+     function clearTable() {
+       $('#scheduleTable tbody').empty();
+     }
+    </script>
+  </body>
+</html>
